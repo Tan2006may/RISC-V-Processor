@@ -31,7 +31,4 @@ module instr_mem(
             $display("STOPPED LOADING AT LINE 8");
     end
     assign instr=imem[pc>>2];   
-//    always @(*) begin
-//             $display("instr=%b", imem[pc>>2]);
-//         end
 endmodule
