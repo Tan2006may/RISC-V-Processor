@@ -37,7 +37,7 @@ Focus is on pipeline behavior, data hazards, forwarding, and timing correctness.
 
 ### Hazard Detection Unit (HDU)
 
-* Detects **load-use hazard**
+* Handles cases where forwarding is not sufficient (load-use hazard).
 * Action:
 
   * Stall PC and IF/ID
