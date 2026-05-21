@@ -1,24 +1,45 @@
 set ::env(PDK) sky130A
 set ::env(DESIGN_NAME) Top
 
-set ::env(VERILOG_FILES) [concat \
-    [glob $::env(DESIGN_DIR)/src/*.v] \
-    [glob "$::env(DESIGN_DIR)/src/*/*.v"] \
-]
+# --- AUTOMATED FILE LOOKUP ---
+set verilog_list [list]
+catch {set verilog_list [concat $verilog_list [glob -nocomplain $::env(DESIGN_DIR)/src/*.v]]}
+catch {set verilog_list [concat $verilog_list [glob -nocomplain $::env(DESIGN_DIR)/src/*/*.v]]}
+set ::env(VERILOG_FILES) $verilog_list
 
 set ::env(CLOCK_PORT) clk
 set ::env(CLOCK_PERIOD) 10.0
 
+# --- THE ABSOLUTE SYNTHESIS PRESERVATION SWITCHES ---
+set ::env(SYNTH_ELABORATE_ONLY) 0
+set ::env(SYNTH_NO_FLIPFLOPS) 0
+set ::env(SYNTH_DRIVING_CELL) "sky130_fd_sc_hd__inv_1"
+set ::env(SYNTH_MAP_DRIVING_CELL) 1
+
+# --- CRITICAL: PREVENT YOSYS FROM CLEANING UNUSED LOGIC ---
+set ::env(SYNTH_CLEAN_OUT) 0
+
+set ::env(SYNTH_READ_BLACKBOX) 0
+
+# --- ABSOLUTE PHYSICAL CONTROLS ---
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 150 150"
-set ::env(CORE_AREA) "10 10 140 140"
-set ::env(PL_TARGET_DENSITY) 0.40
-set ::env(FP_PDN_AUTO_ADJUST) 0
+set ::env(DIE_AREA) "0 0 2000 2000"
+set ::env(CORE_AREA) "10 10 1970 1970"
+set ::env(PL_TARGET_DENSITY) 0.45
+set ::env(FP_PDN_AUTO_ADJUST) 1
 
 set ::env(FP_PDN_VPITCH) 8
 set ::env(FP_PDN_HPITCH) 8
 set ::env(STD_CELL_LIBRARY) sky130_fd_sc_hd
 
 set ::env(RUN_LINTER) 0
-
 set ::env(MAX_FANOUT_CONSTRAINT) 10
+
+set ::env(GRT_RESIZER_DESIGN_OPTIMIZATIONS) 1
+set ::env(GRT_RESIZER_TIMING_OPTIMIZATIONS) 1
+set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
+set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 1
+set ::env(GRT_RT_ESTIMATE_PARASITICS) 1
+set ::env(RUN_DRT) 1
+
+set ::env(GRT_ALLOW_CONGESTION) 0
