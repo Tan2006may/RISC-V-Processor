@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-    module Mem(
+   module Mem(
             input clk,
             input [31:0] alu_res,
             input [31:0] mux2_data,
@@ -29,10 +29,15 @@
         );
             reg [31:0] dataMem[0:1023];
             integer i;
+            
+            `ifndef SYNTHESIS
             initial begin
-                for(i = 0; i < 1024; i = i + 1)
+                for(i = 0; i < 1024; i = i + 1) begin
                     dataMem[i] = 32'd0;
+                end
             end
+            `endif
+
             always@(posedge clk) begin
                 if(MemRead && MemWrite)
                     $display("ERROR: MemRead and MemWrite are both high");  
@@ -43,6 +48,6 @@
                     Read_Data=dataMem[alu_res>>2];
                 end 
                 else Read_Data=32'b0;
-//                 $display("MemRead=%d, dataMem[alu_res>>2]=%d,Read_Data=%d ",MemRead,dataMem[alu_res>>2],Read_Data);
             end
-    endmodule
+endmodule
+
