@@ -22,7 +22,8 @@
 
 module Top(
         input clk,rst,
-	output [31:0] processor_out
+	output [31:0] processor_out1,
+	output processor_out2
     );
         //IF Stage
         wire [31:0] pc_IF,nxt_pc,pc_plus4_IF,instr_ID, pc_ID,pc_plus4_ID,pc_plus4_EX,pc_plus4_MEM,pc_plus4_WB;
@@ -233,6 +234,6 @@ module Top(
         (MemtoReg_WB == 2'b01) ? Read_Data_WB : //LW
         (MemtoReg_WB == 2'b10) ? pc_plus4_WB : //JAL and AUIPC
                                  (alu_res+pc_EX);
-        assign processor_out = write_data;
-            
+        assign processor_out1 = write_data;
+        assign processor_out2 =MemWrite_MEM;
 endmodule
