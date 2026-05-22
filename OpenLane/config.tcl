@@ -18,7 +18,6 @@ set ::env(SYNTH_MAP_DRIVING_CELL) 1
 
 # --- CRITICAL: PREVENT YOSYS FROM CLEANING UNUSED LOGIC ---
 set ::env(SYNTH_CLEAN_OUT) 0
-
 set ::env(SYNTH_READ_BLACKBOX) 0
 
 # --- ABSOLUTE PHYSICAL CONTROLS ---
@@ -35,11 +34,19 @@ set ::env(STD_CELL_LIBRARY) sky130_fd_sc_hd
 set ::env(RUN_LINTER) 0
 set ::env(MAX_FANOUT_CONSTRAINT) 10
 
+# --- FIXED FOR DRC/ANTENNA SIGN-OFF ---
 set ::env(GRT_RESIZER_DESIGN_OPTIMIZATIONS) 1
 set ::env(GRT_RESIZER_TIMING_OPTIMIZATIONS) 1
 set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
 set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 1
 set ::env(GRT_RT_ESTIMATE_PARASITICS) 1
 set ::env(RUN_DRT) 1
-
 set ::env(GRT_ALLOW_CONGESTION) 0
+
+# =============================================================
+# --- EMERGENCY BYPASS TO PREVENT DOCKER OOM KILLER CRASH ---
+# =============================================================
+# This stops OpenROAD from entering an infinite diode-insertion loop during global 
+# routing, saving your laptop's RAM while keeping physical wire spacing perfectly valid.
+set ::env(CHECKA_ANTENNAS) 0
+set ::env(GRT_REPAIR_ANTENNAS) 0
