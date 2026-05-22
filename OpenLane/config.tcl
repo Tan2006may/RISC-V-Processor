@@ -1,4 +1,4 @@
-set ::env(PDK) sky130A
+  set ::env(PDK) sky130A
 set ::env(DESIGN_NAME) Top
 
 # --- AUTOMATED FILE LOOKUP ---
@@ -8,7 +8,7 @@ catch {set verilog_list [concat $verilog_list [glob -nocomplain $::env(DESIGN_DI
 set ::env(VERILOG_FILES) $verilog_list
 
 set ::env(CLOCK_PORT) clk
-set ::env(CLOCK_PERIOD) 10.0
+set ::env(CLOCK_PERIOD) 150.0
 
 # --- THE ABSOLUTE SYNTHESIS PRESERVATION SWITCHES ---
 set ::env(SYNTH_ELABORATE_ONLY) 0
@@ -48,5 +48,5 @@ set ::env(GRT_ALLOW_CONGESTION) 0
 # =============================================================
 # This stops OpenROAD from entering an infinite diode-insertion loop during global 
 # routing, saving your laptop's RAM while keeping physical wire spacing perfectly valid.
-set ::env(CHECKA_ANTENNAS) 0
-set ::env(GRT_REPAIR_ANTENNAS) 0
+set ::env(CHECKA_ANTENNAS) 1
+set ::env(GRT_REPAIR_ANTENNAS) 1
