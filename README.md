@@ -4,8 +4,9 @@
 
 A complete implementation of a 5-stage pipelined RISC-V (RV32I) processor, encompassing both cycle-accurate RTL development and physical design tapeout.
 
-*RTL Focus: Pipeline behavior, hazard handling (forwarding/stalls), and timing correctness.
-*Physical Design: Full OpenLane flow, including synthesis, floorplanning, placement, cts, routing, and GDSII sign-off.
+RTL Focus: Pipeline behavior, hazard handling (forwarding/stalls), and timing correctness.
+
+Physical Design: Full OpenLane flow, including synthesis, floorplanning, placement, cts, routing, and GDSII sign-off.
 
 ---
 
