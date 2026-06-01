@@ -113,4 +113,4 @@ The design has been synthesized, placed, routed, and signed off using the **Open
 
 * Supports **RV32I base instruction set**
 * Designed for **pipeline and hazard understanding**
-* Focus on **cycle-level correctness*
+* Focus on *cycle-level correctness*
