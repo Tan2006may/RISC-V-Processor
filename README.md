@@ -1,9 +1,5 @@
 # RISC-V 5-Stage Pipelined Processor
 
-[![PDK](https://shields.io)](https://github.com)
-[![License](https://shields.io)](https://opensource.org)
-[![Status](https://shields.io)](#-manufacturing-sign-off-metrics)
-
 A complete end-to-end silicon implementation of a 5-stage pipelined RISC-V (RV32I) processor. This project encompasses cycle-accurate RTL development, thorough hazard verification, and automated Physical Design ASIC tapeout generation using the OpenLane flow.
 
 ---
