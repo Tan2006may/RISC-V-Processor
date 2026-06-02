@@ -47,7 +47,7 @@ The physical layout database successfully completed the full OpenLane implementa
 
 ---
 
-## 🛠️ Physical Design & OpenLane Configuration
+## Physical Design & OpenLane Configuration
 
 The layout was hardened using the **OpenLane** ASIC flow under the **sky130A** process design kit. Key engineering adjustments implemented to secure physical sign-off include:
 
