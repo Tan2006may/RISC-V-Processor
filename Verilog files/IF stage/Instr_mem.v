@@ -24,7 +24,7 @@ module instr_mem(
     input [31:0] pc,
     output wire [31:0] instr
     );
-    reg [31:0] imem[0:255];
+    reg [31:0] imem[0:31];
     initial begin
         $readmemb("instructions_mem.mem", imem);
         if (imem[11] === 32'bx)
