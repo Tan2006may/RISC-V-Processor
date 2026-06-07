@@ -27,12 +27,12 @@
             input MemWrite, MemRead,
             output reg [31:0] Read_Data
         );
-            reg [31:0] dataMem[0:1023];
+      reg [31:0] dataMem[0:31];
             integer i;
             
             `ifndef SYNTHESIS
             initial begin
-                for(i = 0; i < 1024; i = i + 1) begin
+               for(i = 0; i < 32; i = i + 1) begin
                     dataMem[i] = 32'd0;
                 end
             end
