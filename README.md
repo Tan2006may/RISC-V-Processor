@@ -9,7 +9,7 @@ A complete end-to-end silicon implementation of a 5-stage pipelined RISC-V (RV32
 The processor implements the base **RV32I** instruction set architecture with a classic 5-stage decoupled execution pipeline optimized for cycle-level correctness:
 
 *   **IF (Instruction Fetch):** Program Counter tracking and instruction memory streaming.
-*   **ID (Instruction Decode):** Instruction decoding and dual-port register file reading.
+*   **ID (Instruction Decode):** Instruction decoding and register file reading.
 *   **EX (Execute):** Arithmetic Logic Unit (ALU) processing, branch evaluation, and address computation.
 *   **MEM (Memory Access):** Synchronous data memory read/write operations.
 *   **WB (Write Back):** Register file destination commits.
@@ -92,5 +92,5 @@ The layout was hardened using the **OpenLane** ASIC flow under the **sky130A** p
 2. Add all synthesizable source files located in the `Verilog files/` directory.
 3. Import `Testbench/TB.v` as your dedicated **Simulation-Only Source**.
 4. Link `instructions_mem.mem` directly to the project as a **Memory Initialization File**.
-5. Set `TB.v` as your **Top Simulation Module**.
+5. Set `Top.v` as your **Top Module**.
 6. Execute **Run Behavioral Simulation** to observe cycle-accurate pipeline waveforms.
