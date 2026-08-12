@@ -32,7 +32,7 @@ module EX_MEM(
         output reg [1:0] fwdMemtoReg
     );
         always@(posedge clk) begin
-            if(flush || rst) begin
+            if(rst) begin
                 fwdalu_res   <= 32'b0;
                 fwdmux2_val   <= 32'b0;
                 fwdrd        <= 5'b0;
