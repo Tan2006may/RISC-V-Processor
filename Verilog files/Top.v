@@ -189,7 +189,7 @@ module Top(
             
             EX_MEM EX_MEM(
                 .rst(rst),
-                .clk(clk),.flush(flush),
+                .clk(clk),
                 .alu_res(alu_res),.mux2_data(mux2_data),
                 .rd(rd_EX),
                 .MemWrite(MemWrite_EX),.MemRead(MemRead_EX),.RegWrite(RegWrite_EX),
@@ -216,7 +216,7 @@ module Top(
              
             MEM_WB MEM_WB(
                 .rst(rst),
-                .clk(clk),.flush(flush),
+                .clk(clk),
                 .MemtoReg(MemtoReg_MEM),
                 .RegWrite(RegWrite_MEM),
                 .read_data(Read_Data),.alu_res(alu_res_MEM),
