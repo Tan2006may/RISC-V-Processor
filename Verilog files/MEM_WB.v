@@ -21,7 +21,7 @@
 
 
 module MEM_WB(
-        input clk,flush,rst,
+        input clk,rst,
         input [1:0] MemtoReg,
         input RegWrite,
         input [31:0] read_data,alu_res,pc_plus4_MEM,
@@ -32,7 +32,7 @@ module MEM_WB(
         output reg [4:0] fwdrd 
     );  
         always@(posedge clk) begin
-            if(flush || rst) begin
+            if(rst) begin
                 fwdMemtoReg <= 1'b0;
                 fwdRegWrite <= 1'b0;
                 fwdread_data <= 32'b0;
