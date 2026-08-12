@@ -21,7 +21,7 @@
 
 
 module EX_MEM(
-        input clk,flush,rst,
+        input clk,rst,
         input [31:0] alu_res,mux2_data,pc_plus4_EX,
         input [4:0] rd,
         input MemWrite,MemRead,RegWrite,
