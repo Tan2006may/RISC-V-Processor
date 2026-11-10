@@ -1,6 +1,6 @@
 # RISC-V 5-Stage Pipelined Processor
 
-A complete end-to-end silicon implementation of a 5-stage pipelined RISC-V (RV32I) processor. This project encompasses cycle-accurate RTL development, thorough hazard verification, and automated Physical Design ASIC tapeout generation using the OpenLane flow.
+A 5-stage pipelined RISC-V (RV32I) processor designed from scratch in Verilog and carried through the complete OpenLane physical design flow on the Sky130A PDK.
 
 ---
 
@@ -42,7 +42,6 @@ The physical layout database successfully completed the full OpenLane implementa
 | **Magic DRC** | 0 Violations | **0** |  PASS |
 | **LVS Check** | Netlist Match | **Clean Match** |  PASS |
 | **Electrical Rule Check (ERC)** | 0 Violations | **0** |  PASS |
-| **Antenna Sign-off** | Automated Flow | **Flow Complete** |  PASS |
 | **Target Clock Period** | User Constrained | **150.0 ns** |  PASS |
 
 ---
