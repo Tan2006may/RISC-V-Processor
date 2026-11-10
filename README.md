@@ -34,7 +34,7 @@ For data dependencies that cannot be resolved via bypassing alone (such as a loa
 
 ## Manufacturing Sign-off Metrics
 
-The physical layout database successfully completed the full OpenLane implementation pipeline and achieved a comprehensive **`[SUCCESS]: Flow complete`** sign-off status with absolute zero physical manufacturing defects.
+The physical layout database successfully completed the full OpenLane implementation pipeline and achieved a comprehensive **`[SUCCESS]: Flow complete`** status.
 
 
 | Verification Metric | Target Threshold | Actual Result | Status |
@@ -48,7 +48,7 @@ The physical layout database successfully completed the full OpenLane implementa
 
 ## Physical Design & OpenLane Configuration
 
-The layout was hardened using the **OpenLane** ASIC flow under the **sky130A** process design kit. Key engineering adjustments implemented to secure physical sign-off include:
+The layout was hardened using the **OpenLane** ASIC flow under the **sky130A** process design kit. Key engineering adjustments implemented include:
 
 *   **Constraint Tuning:** Optimized the input/output percentage parameter (`io_pct` to `0.10`) to eliminate setup timing slacks and pass structural Electrical Rule Checks (ERC).
 *   **Floorplan Sizing:** Utilized absolute floorplan sizing (`DIE_AREA "0 0 2000 2000"`) to resolve Power Distribution Network (PDN) generation constraints and routing conflicts on the macro bounds.
